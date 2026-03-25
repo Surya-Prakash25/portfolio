@@ -229,11 +229,13 @@ export default function Portfolio() {
           LinkedIn
         </motion.a>
         <a 
-          href="/Surya_Prakash_R_AIML.pdf" 
-          className="px-5 py-2 bg-gray-100 border border-gray-200 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-white transition"
-        >
-          Resume 
-        </a>
+  href={process.env.PUBLIC_URL + "/Surya_Prakash_R_AIML.pdf"} 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-5 py-2 bg-gray-100 border border-gray-200 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-white transition"
+>
+  Resume 
+</a>
       </div>
     </div>
   </motion.div>
