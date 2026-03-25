@@ -98,12 +98,12 @@ export default function Portfolio() {
           {/* 2. PROFILE IMAGE */}
           <div className="relative z-10 w-full h-[100vh] flex items-center justify-center">
             <motion.img
-              src="/surya-photo.webp"
+              src={process.env.PUBLIC_URL + "/surya-photo.webp"}
               alt="profile"
               className="max-h-full max-w-full object-contain"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
+/>
           </div>
 
           {/* 3. NAME & NAVIGATION */}
