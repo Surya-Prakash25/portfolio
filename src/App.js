@@ -46,7 +46,7 @@ export default function Portfolio() {
 
       {/* ===== HOME ===== */}
       {page === "home" && (
-        <div className="h-screen w-full relative flex items-center justify-center bg-white px-4">
+        <div className="h-screen w-full relative flex flex-col items-center justify-center bg-white px-4">
           
           {/* 1. ANIMATED BACKGROUND DOODLE LAYER */}
           <div className={`absolute inset-0 pointer-events-none overflow-hidden ${isMobile ? 'opacity-30' : ''}`}>
@@ -124,29 +124,24 @@ export default function Portfolio() {
             </motion.svg>
           </div>
           
-          {/* 2. PROFILE IMAGE */}
-          <div className="relative z-10 w-full h-[100vh] flex items-center justify-center">
-            <motion.img
-              src={process.env.PUBLIC_URL + "/surya-photo.webp"}
-              alt="profile"
-              className={`max-h-[70vh] md:max-h-full max-w-full object-contain ${isMobile ? 'scale-90' : ''}`}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
-
-          {/* 3. NAME & NAVIGATION */}
-          <div className="absolute bottom-20 z-20 md:bottom-10 w-full text-left px-4">
+          {/* 2. CENTERED NAME & NAVIGATION - Removed profile image */}
+          <div className="relative z-10 text-center">
             <motion.h1 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className={`${isMobile ? 'text-3xl' : 'text-5xl'} font-extrabold tracking-tighter text-black`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className={`${isMobile ? 'text-4xl' : 'text-7xl'} font-extrabold tracking-tighter text-black mb-4`}
             >
              SURYA<span className="text-cyan-500"> PRAKASH</span> R
             </motion.h1>
-            <p className="text-gray-400 font-medium tracking-widest uppercase text-xs mt-2 italic">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-gray-400 font-medium tracking-widest uppercase text-sm mt-6 italic"
+            >
               {isMobile ? 'Tap anywhere to Explore' : 'Scroll to Explore'}
-            </p>
+            </motion.p>
           </div>
         </div>
       )}
@@ -185,6 +180,7 @@ export default function Portfolio() {
             { name: "OpenCV", color: "#5C3EE8", top: isMobile ? "70%" : "75%", left: isMobile ? "78%" : "80%" },
             { name: "LLMs", color: "#00A67E", top: isMobile ? "5%" : "10%", left: isMobile ? "50%" : "55%" },
             { name: "React", color: "#61DAFB", top: isMobile ? "85%" : "80%", left: isMobile ? "25%" : "30%" },
+            { name: "SQL", color: "#d7aa49", top: isMobile ? "35%" : "30%", left: isMobile ? "15%" : "10%" },
           ].map((skill, i) => (
             <motion.div
               key={i}
@@ -294,7 +290,9 @@ export default function Portfolio() {
                 { title: "AI Camera Validation", desc: "CNN + YOLO based real-time ballot detection system."},
                 { title: "Enterprise Chatbot (RAG)", desc: "LLM chatbot with embeddings and vector search." },
                 { title: "ERP Workflow Automation", desc: "Automated ERP processes using Frappe." },
-                { title: "AI Image Generation", desc: "Generative model to create image from text." }
+                { title: "AI Image Generation", desc: "Generative model to create image from text." },
+                { title: "Real Time Stock Price Prediction", desc: "LSTM + sentiment analysis based stock price prediction" },
+                { title: "Diabetes Prediction", desc: "Diabetes Prediction using Supervised Learning" }
               ].map((p, i) => (
                 <motion.div 
                   key={i}
